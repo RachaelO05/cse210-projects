@@ -1,5 +1,6 @@
 using System;
 
+//To Add creativity and exceed requirements I added a variable of mood so users can also keep track of they are feeling each day.
 class Program
 {
     static void Main(string[] args)
@@ -20,6 +21,10 @@ class Program
 
             if (choice == 1)
             {
+                Console.WriteLine("How are you feeling today? ");
+                Console.Write("(Happy, Okay, Sad, Irritated, Tired)");
+                string mood = Console.ReadLine();
+
                 string prompt = prompts.GetRandomPrompt();
                 Console.WriteLine(prompt);
 
@@ -30,6 +35,7 @@ class Program
 
                 Entry entry = new Entry();
                 entry._date = dateText;
+                entry._mood = mood;
                 entry._promptText = prompt;
                 entry._entryText = entryText;
 
@@ -50,7 +56,7 @@ class Program
                 Console.WriteLine("What file would you like to save it to?");
                 string filename = Console.ReadLine();
                 journal.SaveToFile(filename);
-            }         
+            }
         }
     }
 }
